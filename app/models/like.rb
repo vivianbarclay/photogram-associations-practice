@@ -14,6 +14,6 @@ class Like < ApplicationRecord
   validates :photo_id, presence: true, uniqueness: { scope: :fan_id }
 
   # Direct Associations
+  belongs_to :photo, inverse_of: :likes, required: true
   belongs_to :fan, class_name: "User", foreign_key: "fan_id"
-  belongs_to :photo, required: true
 end
