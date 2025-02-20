@@ -77,13 +77,15 @@
 
     <tr>
       <td>
-        <%= a_comment.commenter.username %>
+        <% if a_comment.commenter.present? %>
+          <%= a_comment.commenter.username %>
+        <% else %>
+          <strong>Commenter missing!</strong>
+        <% end %>
       </td>
-
       <td>
         <%= a_comment.body %>
       </td>
-
       <td>
         <%= a_comment.created_at %>
       </td>
