@@ -20,10 +20,6 @@ class Photo < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  # Ensure `comments_count` and `likes_count` automatically update
-  has_many :comments, dependent: :destroy, counter_cache: true
-  has_many :likes, dependent: :destroy, counter_cache: true
-
   # Indirect Associations
   has_many :fans, through: :likes, source: :fan
 end

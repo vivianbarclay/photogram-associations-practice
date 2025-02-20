@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
 
   def show
     my_photo_id = params.fetch("photo_id")
-    @the_photo = Photo.includes(comments: :commenter).find_by(id: my_photo_id)
+    @the_photo = Photo.includes(comments: :commenter, likes: :fan).find_by(id: my_photo_id)
 
     if @the_photo == nil
       redirect_to("/404")

@@ -15,6 +15,6 @@ class Comment < ApplicationRecord
   validates :author_id, presence: true
 
   # Direct Associations
-  belongs_to :photo, inverse_of: :comments, required: true
+  belongs_to :photo, counter_cache: :comments_count
   belongs_to :commenter, class_name: "User", foreign_key: "author_id"
 end

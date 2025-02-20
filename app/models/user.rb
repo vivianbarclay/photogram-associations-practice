@@ -13,6 +13,7 @@
 
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: { case_sensitive: false }
+  belongs_to :poster, class_name: "User", foreign_key: "owner_id", inverse_of: :own_photos
 
   # Direct Associations
   has_many :own_photos, class_name: "Photo", foreign_key: "owner_id"
